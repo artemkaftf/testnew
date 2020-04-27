@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TestSVG from './TestSVGContainer'
+import {withStyles} from "@material-ui/core";
+import {connect} from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(props) {
+    return (
+        <div className={props.classes.body}>
+            <TestSVG width="250pt"
+                     height="250pt"
+                     viewBox="0 0 1139 1280"
+
+            />
+        </div>
+    );
 }
 
-export default App;
+const styles = theme => ({
+    body: {
+
+        "min-height": "100vh",
+        "border": "1px solid blue",
+        "display": "flex",
+        "justify-content": "center", /*Центрирование по горизонтали*/
+        "align-items": "center", /*Центрирование по вертикали */
+    },
+
+})
+
+let mapStateToProps = (state) => {
+    return {
+        paths: state.svgStore.paths
+    }
+}
+export default connect (mapStateToProps) (withStyles(styles)(App))
