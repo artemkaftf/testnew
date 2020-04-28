@@ -15,9 +15,9 @@ class Scatterplot extends React.Component {
     updateD3(props) {
         const {data, width, height, zoomTransform, zoomType} = props;
 
-        /*        this.xScale = d3.scaleLinear()
+                this.xScale = d3.scaleLinear()
                     .domain([0, d3.max(data, ([x, y]) => x)])
-                    .range([0, width]),*/
+                    .range([0, width]);
         this.yScale = d3.scaleLinear()
             .domain([0, d3.max(data, ([x, y]) => y)])
             .range([0, height]);
@@ -47,11 +47,7 @@ class Scatterplot extends React.Component {
 
         return (
             <g transform={this.transform} ref="scatterplot">
-                <SVG width="250pt"
-                     height="250pt"
-                     viewBox="0 0 1139 1280"
-                     x={250}
-                     y={250}/>
+                <SVG />
             </g>
         )
     }

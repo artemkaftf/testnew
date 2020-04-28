@@ -39,11 +39,8 @@ const SVG = (props) => {
 
 
     return <svg id="mySVG"
-                width={props.width}
-                height={props.height}
-                viewBox={props.viewBox}
-                style={{border: '1px solid red'}}
-    >
+                viewBox="0 0 1139 1280"
+                style={{border: '1px solid red'}}>
 
         <g>
             {pathElements}

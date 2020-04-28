@@ -10,10 +10,11 @@ class App extends React.Component {
         return (
             <div className={this.props.classes.body}>
                 <svg style={{border: '1px solid green'}} width={650} height={650}>
-                    {/*<TestDrag/>*/}
+
                     <TestZoom
-                        width={500}
-                        height={500}/>
+                        width={650}
+                        height={650}
+                    />
                 </svg>
             </div>
         );
