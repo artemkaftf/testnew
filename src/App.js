@@ -1,19 +1,25 @@
-import React from 'react';
-import TestSVG from './TestSVGContainer'
+import React, {Component} from 'react';
+import TestSVG from './SVG/SVGContainer'
 import {withStyles} from "@material-ui/core";
 import {connect} from "react-redux";
+import TestDrag from "./tools/TestDrag";
 
-
-function App(props) {
-    return (
-        <div className={props.classes.body}>
-            <TestSVG width="250pt"
-                     height="250pt"
-                     viewBox="0 0 1139 1280"
-
-            />
-        </div>
-    );
+class App extends React.Component {
+    render() {
+        return (
+            <div className={this.props.classes.body}>
+                <svg style={{border: '1px solid green'}} width={650} height={650}>
+{/*                    <TestSVG width="250pt"
+                             height="250pt"
+                             viewBox="0 0 1139 1280"
+                             x={250}
+                             y={250}
+                    />*/}
+                    <TestDrag/>
+                </svg>
+            </div>
+        );
+    }
 }
 
 const styles = theme => ({
@@ -33,4 +39,4 @@ let mapStateToProps = (state) => {
         paths: state.svgStore.paths
     }
 }
-export default connect (mapStateToProps) (withStyles(styles)(App))
+export default connect(mapStateToProps)(withStyles(styles)(App))
